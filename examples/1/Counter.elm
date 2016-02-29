@@ -28,12 +28,17 @@ update action model =
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  div []
+  div [ soPink ]
     [ button [ onClick address Decrement ] [ text "-" ]
     , div [ countStyle ] [ text (toString model) ]
     , button [ onClick address Increment ] [ text "+" ]
     ]
 
+soPink : Html.Attribute
+soPink =
+  style
+    [ ("backgroundColor", "#F83E7F")
+    ]
 
 countStyle : Attribute
 countStyle =
